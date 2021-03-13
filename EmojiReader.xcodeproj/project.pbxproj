@@ -14,6 +14,7 @@
 		A0346C2E25FAA05200E66F40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0346C2D25FAA05200E66F40 /* Assets.xcassets */; };
 		A0346C3125FAA05200E66F40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0346C2F25FAA05200E66F40 /* LaunchScreen.storyboard */; };
 		A0346C3A25FAA7BC00E66F40 /* EmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0346C3925FAA7BC00E66F40 /* EmojiTableViewController.swift */; };
+		A0CDB9DE25FCD8B4001A2B23 /* EmojiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CDB9DD25FCD8B4001A2B23 /* EmojiTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A0346C3025FAA05200E66F40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0346C3225FAA05200E66F40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0346C3925FAA7BC00E66F40 /* EmojiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewController.swift; sourceTree = "<group>"; };
+		A0CDB9DD25FCD8B4001A2B23 /* EmojiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				A0346C2825FAA05000E66F40 /* ViewController.swift */,
 				A0346C3925FAA7BC00E66F40 /* EmojiTableViewController.swift */,
 				A0346C2A25FAA05000E66F40 /* Main.storyboard */,
+				A0CDB9DD25FCD8B4001A2B23 /* EmojiTableViewCell.swift */,
 				A0346C2D25FAA05200E66F40 /* Assets.xcassets */,
 				A0346C2F25FAA05200E66F40 /* LaunchScreen.storyboard */,
 				A0346C3225FAA05200E66F40 /* Info.plist */,
@@ -142,6 +145,7 @@
 			files = (
 				A0346C3A25FAA7BC00E66F40 /* EmojiTableViewController.swift in Sources */,
 				A0346C2925FAA05000E66F40 /* ViewController.swift in Sources */,
+				A0CDB9DE25FCD8B4001A2B23 /* EmojiTableViewCell.swift in Sources */,
 				A0346C2525FAA05000E66F40 /* AppDelegate.swift in Sources */,
 				A0346C2725FAA05000E66F40 /* SceneDelegate.swift in Sources */,
 			);
