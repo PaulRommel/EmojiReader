@@ -9,7 +9,7 @@ import UIKit
 
 class EmojiTableViewController: UITableViewController {
     
-    let objects = [
+    var objects = [
         Emoji(emoji: "🥰", name: "Love", description: "Let's love each other", isFavorite: false),
         Emoji(emoji: "🏀", name: "Basketball", description: "Let's play basketball together", isFavorite: false),
         Emoji(emoji: "🐱", name: "Cat", description: "Cat is the cutest animal", isFavorite: false)
@@ -49,50 +49,32 @@ class EmojiTableViewController: UITableViewController {
         return cell
     }
     
+    //Asks the delegate for the editing style of a row at a particular location in a table view.
+    //Метод определяет тип объекта отображаемого при нажатии кнопки "Edite"
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
+    //Asks the data source to commit the insertion or deletion of a specified row in the receiver.
+    //Определяет какие действия совершаются при выборе "editingStyleForRowAt"
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            objects.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+    //Asks the data source whether a given row can be moved to another location in the table view.
+    //Определяет возможность перенесени строки в таблице
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    //Tells the data source to move a row at a specific location in the table view to another location.
+    //Определяет каким способом ячейка фиксируется и переносится
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedEmoji = objects.remove(at: sourceIndexPath.row)
+        objects.insert(movedEmoji, at: destinationIndexPath.row)
+        tableView.reloadData()
+    }
 }
