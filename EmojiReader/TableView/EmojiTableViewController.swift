@@ -25,7 +25,18 @@ class EmojiTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.title = "Emoji Reader"
         self.navigationItem.leftBarButtonItem = self.editButtonItem
+    }
+    
+    //Configure an unwind segue in your storyboard file that dynamically chooses the most appropriate view controller to display next.
+    //Сконфигурируйте раскадровку в файле раскадровки, которая динамически выбирает наиболее подходящий контроллер представления для отображения следующим.
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        guard segue.identifier == "saveSegue" else { return }
+        let sourceVC = segue.source as! NewEmojiTableViewController
+        let emoji = sourceVC.emoji
         
+        let newIndexPath = IndexPath(row: objects.count, section: 0)
+        objects.append(emoji)
+        tableView.insertRows(at: [newIndexPath], with: .fade)
     }
     
     // MARK: - Table view data source
